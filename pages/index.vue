@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-lg my-10 mx-auto">
+  <div class="py-10">
     <h1>
       <img src="~/assets/images/key-visual.png" alt="yasasea" class="w-full">
     </h1>
