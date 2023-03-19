@@ -5,6 +5,10 @@ const email = ref("");
 const password = ref("");
 const router = useRouter();
 
+useHead({
+  title: "新規登録 | ヤサシー（yasasea）",
+});
+
 const handleSubmit = async () => {
   const credential = await createUser(email.value, password.value);
   if (credential) {
@@ -34,7 +38,7 @@ const handleSubmit = async () => {
         />
       </p>
       <p class="text-center mt-5">
-        <button type="submit" class="btn btn-primary" to="/app">保存</button>
+        <button type="submit" class="btn btn-primary" to="/app">登録</button>
       </p>
     </form>
   </div>

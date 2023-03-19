@@ -1,24 +1,9 @@
 import {
   getAuth,
   createUserWithEmailAndPassword,
-  updateProfile,
+  signInWithEmailAndPassword,
 } from "firebase/auth";
-import {
-  getFirestore,
-  collection,
-  addDoc,
-  Timestamp,
-  query,
-  where,
-  limit,
-  onSnapshot,
-  doc,
-  DocumentReference,
-  orderBy,
-  CollectionReference,
-  Query,
-  setDoc,
-} from "firebase/firestore";
+import { getFirestore, doc, setDoc } from "firebase/firestore";
 import { firebaseApp } from "~/plugins/firebase";
 
 const router = useRouter();
@@ -50,12 +35,19 @@ export const useAuth = () => {
         names[~~(Math.random() * names.length)],
         ~~(Math.random() * 10000),
       ].join("-"),
-      photoURL: "//placehold.jp/100x100.png",
+      photoURL: `/avatars/avatar${~~(Math.random() * 4) + 1}.png`,
     });
     return credential;
   };
 
+  const signin = async (email: string, password: string) => {
+    const auth = getAuth();
+    const credential = await signInWithEmailAndPassword(auth, email, password);
+    return credential.user.uid;
+  };
+
   return {
     createUser,
+    signin,
   };
 };

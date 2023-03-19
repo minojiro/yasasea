@@ -35,7 +35,9 @@ const props = defineProps({
         </div>
         <!-- {{ props.post.isMyPost ? "mypost" : "false" }} -->
       </div>
-      <p>{{ props.post.text }}</p>
+      <p :class="{ 'text-gray-400': props.post.isRaw }">
+        {{ props.post.text }}
+      </p>
     </div>
   </div>
 </template>

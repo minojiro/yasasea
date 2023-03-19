@@ -10,9 +10,7 @@ import {
   where,
   limit,
   onSnapshot,
-  DocumentReference,
   orderBy,
-  CollectionReference,
   Query,
   doc,
 } from "firebase/firestore";

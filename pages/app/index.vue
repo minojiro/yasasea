@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { usePosts } from "~~/composable/usePosts";
 
+useHead({
+  title: "ヤサシー（yasasea）",
+});
+
 const { displayPosts, submitPost } = usePosts();
 definePageMeta({ layout: "app" });
 const postText = ref("");
@@ -13,13 +17,13 @@ const handleSubmit = async () => {
 </script>
 
 <template>
-  <div>
+  <div class="pb-10">
     <div class="sticky top-0 z-index-1 z-10 bg-base-100 p-2">
       <form class="input-group flex" @submit.prevent="handleSubmit">
         <input
           v-model="postText"
           type="text"
-          placeholder="今日の気分は？"
+          placeholder="いまの気分は？"
           class="input input-bordered flex-1 bg-white"
         />
         <button class="btn btn-square btn-accent">
@@ -37,5 +41,14 @@ const handleSubmit = async () => {
         <PostItem :post="post" />
       </li>
     </ul>
+    <p class="text-xs">
+      <a
+        href="https://www.freepik.com/free-vector/smiling-people-avatar-set-different-men-women-characters-collection_13663484.htm"
+        target="_blank"
+        rel="noopener"
+        >Image by jcomp</a
+      >
+      on Freepik
+    </p>
   </div>
 </template>
